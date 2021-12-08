@@ -9,7 +9,7 @@ function SearchCity(props) {
 
     return (
         <div className="col-12" >
-            <input type="text" id="sbox" value={props.text} spellCheck="false" onChange={handleChange}
+            <input type="text" id="sbox" value={props.text} placeholder="Search your city" spellCheck="false" onChange={handleChange}
             style={{ width: "55%", 
             height: "40px", 
             borderRadius: "20px", 
@@ -23,8 +23,8 @@ function SearchCity(props) {
             
             <button className="mx-2 " onClick={props.updateWeather} style={{
                 height: "40px", 
-                border: "2px", 
-                border: "1px solid rgba(255,255,255,0.1)", 
+                 
+                border: "1px solid rgba(255,255,255,1)", 
                 color: "#fff", 
                 backgroundColor: "rgba(255, 255, 255, .08)",
                 backdropFilter: "blur(10px)", 

@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
-import moment from 'moment';
 
 // const data = [
 //   {
@@ -59,7 +58,7 @@ export default class Chart extends PureComponent {
           height={300}
           data={this.props.data}
           margin={{
-            top: 5,
+            top: 20,
             right: 30,
             left: 5,
             bottom: 5,

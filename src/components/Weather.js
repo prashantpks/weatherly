@@ -6,6 +6,9 @@ import CurrentHero from './CurrentHero';
 import CurrentDetails from './CurrentDetails';
 import Hourly from './Hourly';
 import Daily from './Daily';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBolt } from '@fortawesome/free-solid-svg-icons';
+import Footer from './Footer';
 
 function Weather(props) {
 
@@ -13,12 +16,13 @@ function Weather(props) {
     const [main, setMain] = useState("");
     const [temp, setTemp] = useState(0);
     const [pressure, setPressure] = useState(0);
-    const [himidity, setHumidity] = useState(0);
-    const [tmin, setTmin] = useState(0);
-    const [tmax, setTmax] = useState(0);
+    const [humidity, setHumidity] = useState(0);
+    const [clouds, setClouds] = useState(0);
+    const [uvi, setUvi] = useState(0);
     const [feels, setFeels] = useState(0);
     const [sunrise, setSunrise] = useState();
     const [sunset, setSunset] = useState();
+    const [windSpeed, setWindSpeed] = useState(0);
     const [date, setDate] = useState();
     const [longitude, setLongitude] = useState(0);
     const [latitude, setLatitude] = useState(0);
@@ -38,7 +42,7 @@ function Weather(props) {
     const [code, setCode] = useState(200);
     const [err, setErr] = useState("");
     const [city, setCity] = useState("New York");
-
+   
     const bgColor = {
         c01d: "#f89223",
         c01n: "#09161c",
@@ -80,17 +84,30 @@ function Weather(props) {
         setForecastData(f);
     }
 
+    const makeHourlyData = (pData) => {
+        for (let i = 0; i < 48; i++) {
+            pData.hourly[i].id = i;
+            pData.hourly[i].dt = convertDate(pData.hourly[i].dt,pData.timezone_offset);
+        }
+        
+        setHourly(pData.hourly);
+    }
+
     const updateWeatherData = (pData) => {
         setDaily(pData.daily);
-        setHourly(pData.hourly);
+        makeHourlyData(pData);
+    
 
         setMain(pData.current.weather[0].main);
         setTemp((pData.current.temp).toFixed(0));
         setOffset(pData.timezone_offset * 1000);
-        setFeels((pData.current.feels_like).toFixed(0));
+        
+        setFeels((pData.current.feels_like).toFixed(2));
         setHumidity(pData.current.humidity);
         setPressure(pData.current.pressure);
-
+        setWindSpeed(pData.current.wind_speed);
+        setClouds(pData.current.clouds);
+        setUvi(pData.current.uvi);
         setSunrise(convertDate(pData.current.sunrise, pData.timezone_offset));
         setSunset(convertDate(pData.current.sunset, pData.timezone_offset));
         setDate(convertDate(pData.current.dt, pData.timezone_offset));
@@ -106,7 +123,7 @@ function Weather(props) {
         let data = await fetch(urlcoord);
         let parsedData = await data.json();
 
-        if (parsedData.cod == 200)
+        if (parsedData.cod === 200)
             return {
                 lon: await parsedData.coord.lon,
                 lat: await parsedData.coord.lat,
@@ -137,7 +154,7 @@ function Weather(props) {
     const updateWeather = async () => {
         setLoading(true);
         const data = await getCoordinates();
-        if (data.cod == 200) {
+        if (data.cod === 200) {
             const { lat, lon } = data;
             setExist(true);
             setCity(data.cityName);
@@ -156,7 +173,6 @@ function Weather(props) {
 
         updateWeather();
         //eslint-disable-next-line
-
     }, [])
 
 
@@ -170,9 +186,17 @@ function Weather(props) {
         }} >
             <div className="container">
                 <div className="App ">
-                    <div className="d-flex flex-row mb-3 justify-content-center">
+                    <div className="d-flex flex-row mb-3">
                         <div className="md-col-12 ">
-                            <h1 className="mt-3">Weather Application</h1>
+                            <h3 className="mt-3" style={{ fontWeight: "bolder" }}>Weather<span style={{
+                                background: "white",
+                                borderRadius: "5px",
+                                color: `${bgColor['c' + iconid]}`,
+                                paddingLeft: "5px",
+                                paddingRight: "5px",
+                                fontWeight: "bolder"
+                            }}>.ly</span>
+                            </h3>
                         </div>
                     </div>
                     <div className="d-flex flex-row justify-content-center my-4">
@@ -184,26 +208,30 @@ function Weather(props) {
                                 <CurrentHero iconid={iconid} temp={temp} main={main} date={date} city={city} loading={loading}></CurrentHero>
                             </div>
                             <div className="col-md-5 col-xs-12">
-                                <CurrentDetails></CurrentDetails>
+                                <CurrentDetails windSpeed={windSpeed} humidity={humidity} feels={feels} pressure={pressure} clouds={clouds} uvi={uvi} sunset={moment(sunset).format('hh:mm a')} sunrise={moment(sunrise).format('hh:mm a')} ></CurrentDetails>
                             </div>
                         </div>
-                        <div className="container mb-3 mt-3">
-                            <h1>Hourly Forecast</h1>
+                        <div className="container mb-3 mt-3 text-start">
+                            <h3 style={{ fontWeight: "bold" }}>Hourly Forecast</h3>
                         </div>
                         <div className="rowbody" >
                             <Hourly hourly={hourly} convertDate={convertDate} offset={offset} ></Hourly>
                         </div>
-                        <div className="container mb-3 mt-3">
-                            <h1>One Week Forecast</h1>
+                        <div className="container mb-3 mt-3 text-start">
+                            <h3 style={{ fontWeight: "bold" }}>7-Days Forecast</h3>
                         </div>
-                        <div className="row mt-5" style={{ height: "350px" }}>
+                        <div className="row mt-3">
                             <Daily forecastData={forecastData}></Daily>
                         </div>
                     </div>}
 
-                    {!exist && <div style={{ height: "100vh" }}>
+                    {!exist && <div style={{ height: "70vh" }}>
                         <h1>{code}: {err}</h1>
+                        <h1><FontAwesomeIcon icon={faBolt}></FontAwesomeIcon></h1>
                     </div>}
+                    <div>
+                        <Footer iconid={iconid} bgColor={bgColor}></Footer>
+                    </div>
                 </div>
             </div>
         </div>

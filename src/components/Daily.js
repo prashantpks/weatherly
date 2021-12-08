@@ -5,7 +5,7 @@ function Daily(props) {
     return (
         <>
             <div className="col-md-12 mt-2" style={{
-                height: "300px",
+                height: "350px",
                 border: "1px solid rgba(255,255,255,0.1)",
                 color: "#fff",
                 backgroundColor: "rgba(255, 255, 255, .08)",

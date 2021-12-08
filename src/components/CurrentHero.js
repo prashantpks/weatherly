@@ -4,7 +4,7 @@ function CurrentHero(props) {
     return (
         <div className="col-md-12 mt-2 mb-2" style={{
             height: "400px",
-            border: "1px solid rgba(255,255,255,0.1)",
+           
             position: "relative",
             color: "#fff",
             borderRadius: "15px",
@@ -27,7 +27,7 @@ function CurrentHero(props) {
                     <p className="display-5">{props.main}</p>
                 </div>
                 <div style={{ bottom: "0", left: "20px", position: "absolute" }}>
-                    <p style={{ fontSize: "36px" }}>{moment(props.date).format('D, dddd')}</p>
+                    <p className="display-5">{moment(props.date).format('D, dddd')}</p>
                 </div>
             </div>
             }
