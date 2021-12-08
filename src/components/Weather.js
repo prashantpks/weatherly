@@ -24,10 +24,13 @@ function Weather(props) {
     const [sunset, setSunset] = useState();
     const [windSpeed, setWindSpeed] = useState(0);
     const [date, setDate] = useState();
+    // eslint-disable-next-line
     const [longitude, setLongitude] = useState(0);
+    // eslint-disable-next-line
     const [latitude, setLatitude] = useState(0);
     const [offset, setOffset] = useState(0);
     const [loading, setLoading] = useState(false);
+    // eslint-disable-next-line
     const [daily, setDaily] = useState([{}]);
     const [hourly, setHourly] = useState([{
         dt: 1638514800,
@@ -176,12 +179,14 @@ function Weather(props) {
     }, [])
 
 
+    // background: `${bgColor['c' + iconid]}`,
+    // background: `-moz-linear-gradient(-45deg, ${bgColor['c' + iconid]} 0%, #000000 100%)`,
+    // background: `-webkit-linear-gradient(-45deg, ${bgColor['c' + iconid]} 0%, #000000 100%)`,
+
 
     return (
         <div className="mt-0 " style={{
-            background: `${bgColor['c' + iconid]}`,
-            background: `-moz-linear-gradient(-45deg, ${bgColor['c' + iconid]} 0%, #000000 100%)`,
-            background: `-webkit-linear-gradient(-45deg, ${bgColor['c' + iconid]} 0%, #000000 100%)`,
+            
             background: `linear-gradient(135deg, ${bgColor['c' + iconid]} 0%, #000000 100%)`
         }} >
             <div className="container">

@@ -1,5 +1,7 @@
 import React from 'react';
 import moment from 'moment';
+
+// process.env.PUBLIC_URL
 function CurrentHero(props) {
     return (
         <div className="col-md-12 mt-2 mb-2" style={{
@@ -8,7 +10,7 @@ function CurrentHero(props) {
             position: "relative",
             color: "#fff",
             borderRadius: "15px",
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url(${process.env.PUBLIC_URL + 'img/' + props.iconid + '.jpg'})`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url(${process.env.PUBLIC_URL + '/img/' + props.iconid + '.jpg'})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: "cover",
             margin: "0"
