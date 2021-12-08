@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/weatherly/static/css/main.7e74a959.chunk.css",
+    "main.js": "/weatherly/static/js/main.c808aca4.chunk.js",
+    "main.js.map": "/weatherly/static/js/main.c808aca4.chunk.js.map",
+    "runtime-main.js": "/weatherly/static/js/runtime-main.5f4b079e.js",
+    "runtime-main.js.map": "/weatherly/static/js/runtime-main.5f4b079e.js.map",
+    "static/js/2.7a452e3f.chunk.js": "/weatherly/static/js/2.7a452e3f.chunk.js",
+    "static/js/2.7a452e3f.chunk.js.map": "/weatherly/static/js/2.7a452e3f.chunk.js.map",
+    "index.html": "/weatherly/index.html",
+    "static/css/main.7e74a959.chunk.css.map": "/weatherly/static/css/main.7e74a959.chunk.css.map",
+    "static/js/2.7a452e3f.chunk.js.LICENSE.txt": "/weatherly/static/js/2.7a452e3f.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5f4b079e.js",
+    "static/js/2.7a452e3f.chunk.js",
+    "static/css/main.7e74a959.chunk.css",
+    "static/js/main.c808aca4.chunk.js"
+  ]
+}
