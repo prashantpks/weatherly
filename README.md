@@ -1,13 +1,13 @@
 # Weather.ly
 
-## Introduction
-Its the web application made using React to know the weather of any city. It fethes data using OpenWeather OneCall API. It has great UI and features and apart from the current  weather details it also shows weekly and hourly forecast of weather.
+## About the Project
+Its the web application made using React to know the weather of any city. It fetches data using OpenWeather OneCall API. It has great UI and features and apart from the current  weather details it also shows weekly and hourly forecast of weather.
 
 
-## Technologies Used
-* React.js
+## Made Using
+* React
 * OpenWeather API
-* Recharts.js
+* Recharts
 * Bootstrap
 
 ## Features
