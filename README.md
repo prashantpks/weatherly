@@ -17,3 +17,6 @@ Its the web application made using React to know the weather of any city. It fet
 * Used Recharts.js to display max and min temperature of daily forecast
 * Responsive Design
 * Dynamic Background depending on weather of that place
+
+## Demo Video
+<img src = "./demoGIF.gif" alt = "demo">
