@@ -1,12 +1,10 @@
 import React from 'react';
 import moment from 'moment';
 
-// process.env.PUBLIC_URL
 function CurrentHero(props) {
     return (
         <div className="col-md-12 mt-2 mb-2" style={{
             height: "400px",
-           
             position: "relative",
             color: "#fff",
             borderRadius: "15px",

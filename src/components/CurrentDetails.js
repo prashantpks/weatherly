@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun,faCloudSun, faFeatherAlt, faTint, faGlasses, faCloud, faWind, faWeight } from '@fortawesome/free-solid-svg-icons';
 
-// border: "1px solid rgba(255,255,255,0.1)",
+
 function CurrentDetails(props) {
     return (
         <div className="col-md-12 mt-2" style={{
