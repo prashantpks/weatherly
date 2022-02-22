@@ -19,4 +19,4 @@ It is a web application made using React to know the weather of any city. It fet
 * Dynamic Background depending on weather of that place
 
 ## Demo Video
-<img src = "./demoGIF.gif" alt = "demo">
+<img src = "./weatherlyDemo.gif" alt = "demo">
